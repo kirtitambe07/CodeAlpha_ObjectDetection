@@ -38,4 +38,4 @@ python main.py
 Press `q` at any time while the window is focused to exit the application gracefully.
 
 ## Demo
-*(Add a screenshot or GIF of the output here)*
+   ![Demo](demo.png)
