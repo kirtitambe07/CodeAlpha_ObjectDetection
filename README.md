@@ -15,6 +15,16 @@ This project demonstrates real-time object detection and tracking using a webcam
 2. **Tracking**: The SORT-family tracker (ByteTrack) analyzes the bounding boxes from consecutive frames. It matches objects based on their positions and movements to assign a persistent ID, allowing us to track them even if they briefly get occluded.
 3. **Annotation**: The script draws the bounding boxes, classes, and IDs onto the frame, computes the FPS, and displays the running total of unique objects.
 
+## Extra Features (Smart Monitoring System)
+- **Movement Trails:** Draws a colored line behind each tracked object showing its last 30 positions.
+- **Dwell Time:** Displays how many seconds each object has been in view directly on its label.
+- **Live Class Counts & Smoothed FPS:** Shows real-time statistics on the top-left of the screen.
+- **Restricted Zone Alerts:** Defines a semi-transparent area on the right. If a person enters it, the zone turns red and an alert is shown and counted.
+- **Confirmed Objects:** Only counts track IDs seen for at least 15 frames to reduce false counting from tracker flickering.
+- **Data Logging:** When exiting, saves a `detections_log.csv` file with object details and generates a `summary.png` bar chart of the confirmed objects per class.
+
+(Note: The detection uses a pre-trained YOLOv8 model and tracking uses ByteTrack; the smart monitoring features are built on top of the tracking IDs to demonstrate real-world analytics.)
+
 ## Installation
 1. Clone the repository or create the project folder.
 2. Create and activate a Python virtual environment:
@@ -38,4 +48,5 @@ python main.py
 Press `q` at any time while the window is focused to exit the application gracefully.
 
 ## Demo
-   ![Demo](demo.png)
+   ![Detection and tracking](demo1.png)
+   ![Restricted zone alert](demo2.png)
